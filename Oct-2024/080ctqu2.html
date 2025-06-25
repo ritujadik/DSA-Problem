@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  const x = {};
+  fetch("https://fakestoreapi.com/products")
+    .then((response) => response.json())
+    .then((data) => {
+      for (let i = 0; i < data.length; i++) {
+        if (!x[data[i].category]) {
+          x[data[i].category] = [];
+        }
+        x[data[i].category].push({ id: data[i].id, title: data[i].title });
+      }
+      console.log(x);
+    })
+    .catch((error) => console.error("Error:", error));
+</script>
