@@ -5,7 +5,9 @@ def missing_number(x):
     actual_sum = 0
     for i in range(len(x)):
         actual_sum +=x[i]
+    print(actual_sum)
+    print(total_sum)
     return total_sum - actual_sum
 
-x = [1,2,4,5,6,7,8,9]
+x = [1,2,3,4,5,7,8,9]
 print(missing_number(x))
