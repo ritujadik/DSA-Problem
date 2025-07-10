@@ -1,19 +1,15 @@
-def lanrgest_substring(x):
-    max_length = 0
-    temp_max = 0
-    new_li = []
+def most_frequent_element(x):
+    result = None
+    max_count = 0
     for i in range(len(x)):
-        if x[i] not in new_li:
-            new_li.append(x[i])
-            temp_max+=1
-            max_length = max(max_length,temp_max)
-        else:
-            idx = new_li.index(x[i])
-            new_li = new_li[idx+1:]
-            new_li.append(x[i])
-            temp_max = len(new_li)
+        count = 1
+        for j in range(i+1,len(x)):
+            count += 1
+        if count>max_count:
+            max_count = count
+            result = x[i]
+    return result
 
-    return max_length
 
-x = "abcabcabc"
-print(lanrgest_substring(x))
+x = [4,3,2,4,3,4,4,4,1]
+print(most_frequent_element(x))
