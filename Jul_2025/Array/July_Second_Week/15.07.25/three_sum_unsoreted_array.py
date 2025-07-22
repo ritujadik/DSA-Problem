@@ -3,7 +3,7 @@ def three_sum(x):
     res = []
     n = len(x)
     for i in range(n-2):
-        if i>0 and x[i] == x[i-1]:
+        if i > 0 and x[i] == x[i-1]:
             continue
         left = i+1
         right = n-1
