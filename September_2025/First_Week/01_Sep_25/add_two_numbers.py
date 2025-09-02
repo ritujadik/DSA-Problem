@@ -19,35 +19,37 @@ output = [8,9,9,9,0,0,1]
 # 0<=Node.val<=9
 # it is guaranteed that the list represents a number that does not have leading zeros
 
-
 class node:
     def __init__(self,val):
         self.val = val
         self.next = None
 
-    def add_two_number(self,l1,l2):
-       dummy = node(0)
-       current = dummy
-       carry = 0
 
-       while l1 or l2 or carry:
-           val1 = l1.val if l1 else 0
-           val2 = l2.val if l2 else 0
+    def add_two_linked_list(self,l1,l2):
+        dummy = node(0)
+        current = dummy
+        carry = 0
+        while l1 or l2:
+            val1 = l1.val if l1 else 0
+            val2 = l2.val if l2 else 0
 
-           total = val1 + val2 + carry
+            total = val1 + val2 + carry
 
-           carry = total//10
+            carry = total // 10
 
-           current.next = node(total%10)
+            dummy.next = node(total%10)
+            dummy = dummy.next
 
-           current = current.next
+            if l1:
+                l1 = l1.next
+            if l2:
+                l2 = l2.next
 
-           if l1:
-               l1 = l1.next
-           if l2:
-               l2 = l2.next
+        if carry:
+            dummy.next = node(carry)
 
-       return dummy.next
+        return current.next
+
 
 
 l1 = node(2)
@@ -60,7 +62,7 @@ l2.next.next = node(6)
 
 
 sol = node(0)
-result = sol.add_two_number(l1,l2)
+result = sol.add_two_linked_list(l1,l2)
 
 while result:
     print(result.val,end=" -> " if result.next else "\n")
