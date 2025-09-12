@@ -33,13 +33,14 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 """
 
 def remove_duplicate(x):
-   i = 0
-   for j in range(1,len(x)):
+    x.sort()
+    i = 0
+    for j in range(1,len(x)):
        if x[j] != x[i]:
            i+=1
            x[i] = x[j]
 
-   return i+1
+    return i+1
 
 
 
