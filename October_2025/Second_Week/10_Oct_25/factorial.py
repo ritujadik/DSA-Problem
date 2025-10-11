@@ -7,6 +7,5 @@ def factorial(x):
     return x * factorial(x-1)
 
 
-
 x = 5
 print(factorial(x))
