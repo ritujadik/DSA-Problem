@@ -1,13 +1,12 @@
 def duplicates(x):
     seen = {}
     new_arr = []
-    for i in x:
-        if i  not in seen:
-            seen[i] = 1
-        else:
+    for i  in x:
+        if i in seen:
             seen[i]+=1
             if seen[i]  == 2:
                 new_arr.append(i)
+        else: seen[i]=1
     return new_arr
 
 
